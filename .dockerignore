@@ -1,0 +1,13 @@
+.git
+.github
+.env
+**/node_modules
+**/README.md
+**/dist
+**/.next
+docker-compose.yml
+.monitoring
+.k8s
+.terraform
+.npmrc
+key.json

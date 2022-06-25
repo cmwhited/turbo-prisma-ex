@@ -1,0 +1,36 @@
+{
+  "name": "turbo-prisma-ex",
+  "version": "0.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "gen:types:api": "turbo run gen:types --filter api",
+    "dev:api": "turbo run dev --filter api",
+    "start:api": "turbo run start --filter api",
+    "docker:plugin": "docker plugin install grafana/loki-docker-driver:latest --alias loki --grant-all-permissions",
+    "docker:build": "DOCKER_BUILDKIT=1 docker build --secret id=npmrc,src=$HOME/.npmrc . -t turbo-prisma-ex",
+    "docker:up": "docker compose up -d",
+    "docker:down": "docker compose down",
+    "docker:clean": "docker system prune --volumes",
+    "docker:restart": "pnpm docker:down && pnpm docker:up",
+    "docker:test": "docker compose exec test pnpm test",
+    "logs": "docker compose logs"
+  },
+  "devDependencies": {
+    "prettier": "latest",
+    "turbo": "latest"
+  },
+  "engines": {
+    "npm": ">=8.0.0",
+    "node": ">=16.0.0"
+  },
+  "dependencies": {},
+  "packageManager": "pnpm@7.3.0"
+}
