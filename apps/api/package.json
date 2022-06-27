@@ -10,7 +10,7 @@
     "build": "etsc --config=etsc.config.js",
     "start": "pnpm build && node dist/server.js",
     "lint": "eslint --fix src/** --fix test/** --ext .ts",
-    "gen:types": "prisma db push && prisma generate"
+    "gen:types": "pnpx prisma generate"
   },
   "keywords": [],
   "author": "",
