@@ -32,4 +32,6 @@ RUN cd /app/apps/api \
 RUN --mount=type=secret,id=npmrc,dst=/root/.npmrc \
   pnpm i --prod false
 
+RUN pnpm gen:types:api
+
 RUN pnpm build

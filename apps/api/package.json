@@ -10,7 +10,7 @@
     "build": "etsc --config=etsc.config.js",
     "start": "pnpm build && node dist/server.js",
     "lint": "eslint --fix src/** --fix test/** --ext .ts",
-    "gen:types": "pnpx prisma generate"
+    "gen:types": "prisma generate"
   },
   "keywords": [],
   "author": "",
@@ -18,7 +18,7 @@
   "dependencies": {
     "@graphql-tools/schema": "^8.4.0",
     "@graphql-tools/utils": "^8.7.0",
-    "@prisma/client": "^3.15.2",
+    "@prisma/client": "^4.0.0",
     "apollo-server-core": "^3.9.0",
     "apollo-server-express": "^3.9.0",
     "dotenv": "^16.0.1",
@@ -42,7 +42,7 @@
     "esbuild-node-tsc": "^1.8.6",
     "esbuild-plugin-d.ts": "^1.1.0",
     "nodemon": "^2.0.18",
-    "prisma": "^3.15.2",
+    "prisma": "^4.0.0",
     "ts-node": "^10.8.1",
     "typescript": "^4.7.4"
   }
