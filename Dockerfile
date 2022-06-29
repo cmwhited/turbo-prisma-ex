@@ -1,7 +1,13 @@
+FROM positivly/prisma-binaries:latest as prisma
 FROM node:16.15-alpine3.16
 RUN apk add --no-cache git curl python3 make gcc libc-dev g++ libc6-compat openssl openssl-dev \
     && curl -sL https://unpkg.com/@pnpm/self-installer | node
 RUN ln -sf python3 /usr/bin/python
+COPY --from=prisma /prisma-engines/query-engine /prisma-engines/migration-engine /prisma-engines/
+ENV PRISMA_QUERY_ENGINE_BINARY=/prisma-engines/query-engine \
+  PRISMA_MIGRATION_ENGINE_BINARY=/prisma-engines/migration-engine \
+  PRISMA_CLI_QUERY_ENGINE_TYPE=binary \
+  PRISMA_CLIENT_ENGINE_TYPE=binary
 
 WORKDIR /app
 

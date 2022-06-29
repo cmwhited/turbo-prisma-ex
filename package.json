@@ -15,7 +15,7 @@
     "dev:api": "turbo run dev --filter api",
     "start:api": "turbo run start --filter api",
     "docker:plugin": "docker plugin install grafana/loki-docker-driver:latest --alias loki --grant-all-permissions",
-    "docker:build": "DOCKER_BUILDKIT=1 docker build --secret id=npmrc,src=$HOME/.npmrc . -t turbo-prisma-ex",
+    "docker:build": "DOCKER_BUILDKIT=1 docker build --platform linux/arm64 --secret id=npmrc,src=$HOME/.npmrc . -t turbo-prisma-ex",
     "docker:up": "docker compose up -d",
     "docker:down": "docker compose down",
     "docker:clean": "docker system prune --volumes",
